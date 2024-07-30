@@ -1,24 +1,41 @@
-import React,  {useState} from 'react';
+import React,  {useState, useEffect} from 'react';
 import './Search.css'
 
 export default  function Search(){
     const [city, setCity ]=useState(null); 
     const[Time, setTime]=useState(null);
+    const[loading, setLoading]=useState(null)
+    const[timezone, setTimezone]=useState(null)
     
-function searchHandle  (event){
-    event.preventDefault();
-async function search(){
+    
+    
+async function searchHandle(e){
+    e.preventDefault();
+    setLoading(true);
+    
     try{
-   const Search= await fetch(${city}`)
-   const searchData= await Search.json();
-   setTime(searchData.time)}
-   catch(error){
+   const Search= await fetch((`http://worldtimeapi.org/api/timezone/${city}`));
+    const searchData=  await Search.json();
+    const date= new Date(searchData.datetime);
+    const UTC= date.toUTCString();
+   const EST= new Date(searchData.datetime).toLocaleString('nl-NL', {timeZone: 'Europe/Berlin'});
+   const CET= new Date(searchData.datetime).toLocaleString('nl-NL', {timeZone: 'America/New_York'});
+   console.log(UTC)
+   console.log(EST);
+   console.log(CET);  
+    setTime({})
+    console.log(Time)
+   setTimezone(searchData.timezone); 
+ } 
+ 
+ catch(error){
     console.log(error)
    }
+    
+    };  
+    
+;
 
-     
-    }
-search()}
     
     function City(event){
         setCity(event.target.value);
@@ -30,7 +47,8 @@ return (<div className='Search'>
     <input type='submit'value='search' className='Submit'/>
 </form>
 <div>
-    <p>{city}:{Time}</p>
+    {loading}
+    <p>{timezone}<span>{Time}</span><span></span><span>EST</span><span>CET</span></p>
 </div>
 </div>)
 
