@@ -1,55 +1,69 @@
-import React,  {useState, useEffect} from 'react';
+
+import React,  {useState} from 'react';
 import './Search.css'
+import Time from './Time.js'
 
 export default  function Search(){
-    const [city, setCity ]=useState(null); 
-    const[Time, setTime]=useState(null);
-    const[loading, setLoading]=useState(null)
-    const[timezone, setTimezone]=useState(null)
+    const [city, setCity ]=useState(''); 
+    const[data, setData]=useState({loaded:false});
+    const[error, setError]= useState(null)
     
+    const searchHandle= async(e)=>{
+            e.preventDefault();
+            try{
+           const Search= await fetch((`http://worldtimeapi.org/api/timezone/${city}`));
+            if(!Search.ok){
+                throw new Error(`HTTP error! status: ${Search.status}`)
+                 }
+            const response=await Search.json();
+            console.log(response); 
+            setData({loaded:true,Time:response.datetime,
+                Timezone:response.timezone,
+                Offset:response.utc_offset,
+               })
+         } 
+         catch(error){
+            if (error.message.includes('Failed to fetch')){
+        setError(<div>
+         <p> Invalid Input: Please enter a timezone eg. Africa/Lagos, Europe/London</p>
+          <p>Or Check your Netwrok connection and try again.</p></div>)  
+            }else{
+                setError(`Error: ${error.message}`)
+            }
+        }
+        };  
     
-    
-async function searchHandle(e){
-    e.preventDefault();
-    setLoading(true);
-    
-    try{
-   const Search= await fetch((`http://worldtimeapi.org/api/timezone/${city}`));
-    const searchData=  await Search.json();
-    const date= new Date(searchData.datetime);
-    const UTC= date.toUTCString();
-   const EST= new Date(searchData.datetime).toLocaleString('nl-NL', {timeZone: 'Europe/Berlin'});
-   const CET= new Date(searchData.datetime).toLocaleString('nl-NL', {timeZone: 'America/New_York'});
-   console.log(UTC)
-   console.log(EST);
-   console.log(CET);  
-    setTime({})
-    console.log(Time)
-   setTimezone(searchData.timezone); 
- } 
- 
- catch(error){
-    console.log(error)
-   }
-    
-    };  
-    
-;
-
-    
-    function City(event){
+    function City(event){   
         setCity(event.target.value);
     }
-
-return (<div className='Search'>
-<form onSubmit={searchHandle}>
-    <input type='text' placeholder='Search  a country' className='searchInput' onChange={City}/>
-    <input type='submit'value='search' className='Submit'/>
-</form>
-<div>
-    {loading}
-    <p>{timezone}<span>{Time}</span><span></span><span>EST</span><span>CET</span></p>
-</div>
-</div>)
-
+ if(data.loaded===true){
+    return (<div className='Search' id='container'>
+        <form onSubmit={searchHandle}>
+        <input type='text' placeholder='Search  a country' className='searchInput' value={city} onChange={City}/>
+        <input type='submit'value='search' className='Submit'/>
+        </form>
+        <Time myData={data}/>
+        
+       </div>
+        )
+   }
+   else if( data.loaded===false && error!== null){
+    return (<div className='Search' id='container'>
+        <form onSubmit={searchHandle}>
+        <input type='text' placeholder='Search  a country' className='searchInput'value={city} onChange={City}/>
+        <input type='submit'value='search' className='Submit'/>
+        </form>
+        <div style={{ color: 'black' }}>{error}</div>
+       </div>)   }
+  else{   
+    return (<div className='Search' id='container'>
+        <form onSubmit={searchHandle}>
+        <input type='text' placeholder='Search  a country' className='searchInput'value={city} onChange={City}/>
+        <input type='submit'value='search' className='Submit'/>
+        </form>
+       
+       </div>
+        )
+  }
+  
 }
