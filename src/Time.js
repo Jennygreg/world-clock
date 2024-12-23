@@ -6,7 +6,7 @@ const timeDate=props.myData.response;
 
 if(timeDate){console.log(props)
     const {datetime,timezone,utc_offset, abbreviation}= timeDate
-    const Days=['Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday','Sunday'];
+    const Days=['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
     const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const myDate= new Date(datetime);
     console.log(myDate);

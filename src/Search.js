@@ -2,7 +2,8 @@
 import React,  {useState} from 'react';
 import './Search.css'
 import Time from './Time.js'
-import FavCity from './FavCity.js';
+
+
 
 export default  function Search(){
     const [city, setCity ]=useState(''); 
@@ -39,7 +40,21 @@ export default  function Search(){
     }
      
  
-      if(data.loaded===true) {return (
+      if(data.loaded===false ){return(
+        <div className="Search" id="container">
+        <form onSubmit={SearchInput}>
+          <input
+              type="text"
+              placeholder="Search a country"
+              className="searchInput"
+              value={city}
+              onChange={City}
+              name='Searchvalue}'
+             id="searchInput"
+          />
+          <input type="submit" value="search" className="Submit" />
+        </form></div>
+      )}  else {return (
         <div className="Search" id="container">
           <form onSubmit={SearchInput}>
             <input
@@ -54,27 +69,7 @@ export default  function Search(){
             <input type="submit" value="search" className="Submit" />
           </form>
             <Time myData={data} />
-            <FavCity/></div>)} 
-      
-        else{
-           return(
-            <div className="Search" id="container">
-              <form onSubmit={SearchInput}>
-                <input
-                   type="text"
-                   placeholder="Enter search e.g Africa/Lagos, Europe/London..."
-                   className="searchInput"
-                   value={city}
-                   onChange={City}
-                   name='Searchvalue}'
-                  id="searchInput"
-                 
-                />
-                <input type="submit" value="search" className="Submit" />
-              </form>
-          <FavCity/>
-        </div>)
-      }
-    
+          </div>)}
+         
   ;
 }

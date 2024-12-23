@@ -4,6 +4,9 @@ import Search from './Search.js';
 
 
 
+
+
+
 export default function ClockFace(){
     const [hourHand, setHourHand]=useState('hr');
     const[minHand, setMinHand]=useState('mn');
@@ -36,8 +39,7 @@ export default function ClockFace(){
     ))} 
        </div>
        <div className='Search'>
-        <Search/>
-        
+       <Search/>
         </div>
        
     </div>

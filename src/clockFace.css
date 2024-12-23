@@ -1,14 +1,4 @@
 
-#container{
-    width: 700px;
-    height: 900px;
-    display:block;
-    margin: 0 auto;
-    margin-top: 100px;
-    background-color:rgb(216, 200, 232);
-    border-radius: 50px;
-
-}
 .clock{
     width:200px;
     height:200px;
