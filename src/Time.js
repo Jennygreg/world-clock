@@ -5,23 +5,26 @@ export default function Time(props){
 const timeDate=props.myData.response; 
 
 if(timeDate){console.log(props)
-    const {datetime,timezone,utc_offset, abbreviation}= timeDate
+    const {timezone,utc_offset, abbreviation}= timeDate
     const Days=['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
     const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const myDate= new Date(datetime);
-    console.log(myDate);
-    const day=Days[myDate.getDay()];
-    const Month=Months[myDate.getMonth()]
-    const Year = myDate.getFullYear()
-    let second =myDate.getUTCSeconds().toString();
+    const utcOffset = parseInt(timeDate.utc_offset);
+  const cityCurrentTime = new Date();
+  const cityTime = new Date(cityCurrentTime.getTime() + (utcOffset * 60 * 60 * 1000));
+    
+    console.log(cityTime);
+    const day=Days[cityTime.getDay()];
+    const Month=Months[cityTime.getMonth()]
+    const Year = cityTime.getFullYear()
+    let second =cityTime.getUTCSeconds().toString();
     if(second< 10){
         second=`0${second}`;
     }
-    let min=myDate.getUTCMinutes().toString();
+    let min=cityTime.getUTCMinutes().toString();
     if (min<10){
         min=`0${min}`
     }
-    let hour = myDate.getUTCHours().toString();
+    let hour = cityTime.getUTCHours().toString();
     if(hour<0){
         hour=`0${hour}`
     }
