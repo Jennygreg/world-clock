@@ -41,7 +41,7 @@ export default  function Search(){
      
  
       if(data.loaded===false ){return(
-        <div className="Search" id="container">
+        <div className="Search" id="Searchcontainer">
         <form onSubmit={SearchInput}>
           <input
               type="text"
@@ -68,7 +68,7 @@ export default  function Search(){
             />
             <input type="submit" value="search" className="Submit" />
           </form>
-            <Time myData={data} />
+           <div><Time myData={data} /></div> 
           </div>)}
          
   ;

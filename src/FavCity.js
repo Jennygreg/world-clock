@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react'
+import LoaderIcon from "react-loader-icon";
+import  './FavCity.css'
 export default function FavCity(){
-    const favCities=["Africa/Lagos", "Europe/London","Asia/Tokyo","America/Santiago","Europe/Berlin","America/New_York",];
+    const favCities=["Africa/Lagos", "Europe/London","Asia/Tokyo","America/New_York",];
     const [cityData, setCityData]= useState([{}]);
     const [error, setError]= useState();
     const[loading, setLoading]=useState(true)
@@ -22,7 +24,7 @@ setLoading(false)
       }
     fetchCityData()
     console.log(cityData)
-  },[])
+  }, []) // eslint-disable-next-line
     
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -40,9 +42,13 @@ setLoading(false)
     return () => clearInterval(intervalId);
   }, [cityData]); 
 if (error)
-  {return<div>could not load cities: try again...</div>}
+  {return (<div className='error'>could not display cities:  try again...</div>)}
 if(loading){
-
+return(
+<div className='loadingIcon'>
+  <LoaderIcon type={"spin"}/>
+<p>Loading</p>
+</div>)
 }
  else{return(cityData.map((favcity, index)=>{
   const Days=['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
@@ -71,13 +77,14 @@ if(loading){
     let currentDate=`${day} ${Month},${Year} `;
     let utcTimezoneOffSet = `UTC:${favcity.utc_offset}`;
 
-  return (<div key={index}> 
-  <h1> {favcity.timezone}</h1>
-  <h2>{currentDate}</h2>
-  <h3>{currentTime}</h3>
-  <h4>{utcTimezoneOffSet}</h4>
+  return (
+  <div key={index} className='favCities'> 
+  <h2> {favcity.timezone}</h2>
+  <p>{currentDate}</p>
+  <p>{currentTime}</p>
+  <p>{utcTimezoneOffSet}</p>
   <p>{favcity.abbreviation}</p>
-  </div>
-  )
+</div>
+)
   }))}}
    

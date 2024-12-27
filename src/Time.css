@@ -1,0 +1,17 @@
+.searchresult{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin:20px;
+    padding:0;
+    height:100px
+}
+.searchresult p{
+    font-size: large;
+    padding: 10px ;
+    margin:10px;
+    font-weight:500;
+}
+.searchresult span{
+    padding: 10px ;
+}

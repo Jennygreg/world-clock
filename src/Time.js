@@ -1,12 +1,11 @@
 import React from 'react';
-
 import './Time.css'
 export default function Time(props){
 const timeDate=props.myData.response; 
 
 if(timeDate){console.log(props)
     const {timezone,utc_offset, abbreviation}= timeDate
-    const Days=['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+    const Days=['Sun','Mon','Tues','Wed','Thur', 'Fri','Sat'];
     const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const utcOffset = parseInt(timeDate.utc_offset);
   const cityCurrentTime = new Date();
@@ -33,16 +32,16 @@ if(timeDate){console.log(props)
     let utcTimezoneOffSet = `UTC:${utc_offset}`;
        
     return(
-        <div>
-            <h1>{timezone}</h1>
-            <h2> {currentDate}</h2>
+        <div className='searchresult'> 
+            <h2>{timezone}</h2>
+            <p> {currentDate}</p>
             <p>{currentTime}
             <span> {utcTimezoneOffSet}</span>
             <span> {abbreviation}</span>
             </p> 
         </div>)}else{
     
-    return 'Please check your network connection and enter valid search e.g Africa/Lagos, Europe/London '
+    return (<p>Please check your network connection and enter valid search e.g continent/city</p> )
  }
 
 

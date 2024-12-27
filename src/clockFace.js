@@ -1,11 +1,5 @@
 import React,{useState, useEffect} from 'react';
 import './clockFace.css';
-import Search from './Search.js';
-
-
-
-
-
 
 export default function ClockFace(){
     const [hourHand, setHourHand]=useState('hr');
@@ -28,8 +22,8 @@ export default function ClockFace(){
     <div id='container'>
         <div className="clock"> 
         <div className='needle hr' style={{'--h':'40px', '--clr':'black',transform: `rotate(${hourRotation}deg)`   }}><span></span></div>
-         <div className='needle mn' style={{'--h':'55px', '--clr':'black',transform: `rotate(${minuteRotation}deg)` }}><span></span></div>
-         <div className='needle ss' style={{'--h':'60px', '--clr':'red',transform: `rotate(${secondRotation}deg)`}}><span></span></div>
+         <div className='needle mn' style={{'--h':'45px', '--clr':'black',transform: `rotate(${minuteRotation}deg)` }}><span></span></div>
+         <div className='needle ss' style={{'--h':'45px', '--clr':'red',transform: `rotate(${secondRotation}deg)`}}><span></span></div>
         {Array(12).fill()
         .map((_, index)=>(
        <div key={index} className='hour'style={{'--index':index + 1}}>
@@ -39,7 +33,6 @@ export default function ClockFace(){
     ))} 
        </div>
        <div className='Search'>
-       <Search/>
         </div>
        
     </div>

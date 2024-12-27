@@ -1,0 +1,26 @@
+.error{
+    position:fixed;
+    left: 40%;  
+}
+.loadingIcon{
+position:fixed;
+left: 45%;
+}
+.favCities{
+    display:flex;
+    margin: 0 auto;
+    max-width: 70%;
+    width:800px;
+    border: 1px solid rgb(121, 104, 104);
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 3px rgb(121, 104, 104);
+   justify-content:space-around;
+   align-items: baseline;
+   padding:20px;
+   margin-bottom: 50px;
+   
+}
+.favCities p{
+    font-size: large;
+    font-weight: 500;
+}
