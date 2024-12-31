@@ -1,10 +1,13 @@
 .error{
-    position:fixed;
-    left: 40%;  
+    display:block;
+    margin: 0 auto;  
+    width: 300px;
+    position:absolute;
+    left: 250px;
 }
 .loadingIcon{
-position:fixed;
-left: 45%;
+position:absolute;
+left: 350px;
 }
 .favCities{
     display:flex;
@@ -18,7 +21,6 @@ left: 45%;
    align-items: baseline;
    padding:20px;
    margin-bottom: 50px;
-   
 }
 .favCities p{
     font-size: large;

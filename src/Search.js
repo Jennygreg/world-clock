@@ -68,7 +68,7 @@ export default  function Search(){
             />
             <input type="submit" value="search" className="Submit" />
           </form>
-           <div><Time myData={data} /></div> 
+           <Time myData={data} />
           </div>)}
          
   ;

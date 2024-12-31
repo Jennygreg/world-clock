@@ -51,7 +51,7 @@ return(
 </div>)
 }
  else{return(cityData.map((favcity, index)=>{
-  const Days=['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+  const Days=['Sun','Mon','Tues','Wed','Thurs', 'Fri','Sat'];
   const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const utcOffset = parseInt(favcity.utc_offset);
   const cityCurrentTime = new Date();
