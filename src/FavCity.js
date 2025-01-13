@@ -24,7 +24,7 @@ setLoading(false)
       }
     fetchCityData()
     
-  }, []) // eslint-disable-next-line
+  }, [] ) 
     
   useEffect(() => {
     const intervalId = setInterval(() => {

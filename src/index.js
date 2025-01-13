@@ -11,6 +11,7 @@ root.render(
     <p className='tag'>Your Timezone Buddy...!</p>
     </div>
     <App/>
+  
   </React.StrictMode>
 );
 

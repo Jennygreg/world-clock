@@ -1,7 +1,7 @@
 body{
-    background-image:linear-gradient(to left, rgb(58, 39, 114) , rgb(64, 118, 183), rgb(27, 109, 86) );;
-    margin:0;
-    padding:0;
+    background-image:linear-gradient(to left, rgb(58, 39, 114) , rgb(64, 118, 183), rgb(27, 109, 86) );
+    padding-top:10px;
+   
 }
 .loadingIcon{
     position:absolute;
@@ -12,7 +12,7 @@ body{
     margin: 0 auto;  
     width: 600px;
     position:absolute;
-    left: 120px;
+    left: 75px;
     font-size: 1.2em;
 }
 .introdiv{

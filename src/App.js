@@ -13,6 +13,7 @@ function App() {
     <div className='clockDiv'><ClockFace/></div> 
     <div className='Searchcontainer'> <Search /></div>
      <div className='displayCity'><FavCity/></div>
+      <div><footer><a href='' target="_blank">Open source code</a> by Jennifer</footer></div> 
     </div>
   );
 }
