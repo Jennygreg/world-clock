@@ -6,6 +6,8 @@ export default function FavCity(){
     const [cityData, setCityData]= useState([{}]);
     const [error, setError]= useState();
     const[loading, setLoading]=useState(true)
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 
     useEffect(()=>{
      const fetchCityData= async()=>{
@@ -20,6 +22,7 @@ setCityData(searchReponse)
           setError(error.message)
         }finally {
           setLoading(false);
+          await delay(1000)
         }
       }
     fetchCityData()
