@@ -8,30 +8,25 @@ import Time from './Time.js'
 export default  function Search(){
     const [city, setCity ]=useState(''); 
     const[data, setData]=useState({loaded:false});
+    const url=`http://worldtimeapi.org/api/timezone/${city}`;
    
-        
-    
     const searchHandle= async(city)=>{
             
             try{
-           const Search= await fetch((`http://worldtimeapi.org/api/timezone/${city}`));
-            if(!Search.ok){
+              const citySearch= await fetch(url);
+              if(!citySearch.ok){
                 throw new Error(`HTTP error! status: ${Search.status}`)
-                 }
-            const response=await Search.json();
-            console.log(response); 
-            return response
-         } 
-         catch(error){
-            
-            console.log(error.message)
-       }
-        };  
-       
+              }
+              const cityReponse=await citySearch.json();
+              return cityReponse; 
+            }
+              catch(error){
+                console.log(error.message)
+              }
+    }
       async function SearchInput(e){ 
             e.preventDefault()
           const response= await searchHandle(city)
-          console.log(response)
            setData({loaded:true, response})
           
             }
@@ -45,7 +40,7 @@ export default  function Search(){
         <form onSubmit={SearchInput}>
           <input
               type="text"
-              placeholder="Search a country"
+              placeholder="Search a country e.g Europe/Berlin"
               className="searchInput"
               value={city}
               onChange={City}
@@ -59,7 +54,7 @@ export default  function Search(){
           <form onSubmit={SearchInput}>
             <input
                 type="text"
-                placeholder="Search a country"
+                placeholder="Search a country e.g Europe/Berlin"
                 className="searchInput"
                 value={city}
                 onChange={City}

@@ -1,17 +1,25 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import './Time.css'
 export default function Time(props){
 const timeDate=props.myData.response; 
-
-if(timeDate){console.log(props)
+const [currentTime, setCurrentTime]=useState(new Date());
+useEffect(()=>{
+    const intervalId=setInterval(()=>{ 
+    setCurrentTime(new Date());}, 1000); 
+    return()=>{
+        clearInterval(intervalId)
+    };
+},[]);
+if(timeDate){
     const {timezone,utc_offset, abbreviation}= timeDate
     const Days=['Sun','Mon','Tues','Wed','Thur', 'Fri','Sat'];
     const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const utcOffset = parseInt(timeDate.utc_offset);
-  const cityCurrentTime = new Date();
-  const cityTime = new Date(cityCurrentTime.getTime() + (utcOffset * 60 * 60 * 1000));
-    
-    console.log(cityTime);
+    /*This gets the currentTime in milliseconds since the Unix epoch (January 1, 1970, 00:00:00 UTC).
+     calculates the UTC offset which is UTC  hours in seconds by multiplying it by 60  * 60 and convert it from second
+     to millisecond by multiplying it by 1000 */
+    const cityTime = new Date(currentTime.getTime() + (utcOffset * 60 * 60 * 1000));
+  
     const day=Days[cityTime.getDay()];
     const Month=Months[cityTime.getMonth()]
     const Year = cityTime.getFullYear()
@@ -27,7 +35,7 @@ if(timeDate){console.log(props)
     if(hour<0){
         hour=`0${hour}`
     }
-    let currentTime=`${hour}:${min}:${second}`;
+    let formattedTime=`${hour}:${min}:${second}`;
     let currentDate=`${day} ${Month},${Year} `;
     let utcTimezoneOffSet = `UTC:${utc_offset}`;
        
@@ -35,7 +43,7 @@ if(timeDate){console.log(props)
         <div className='searchresult'> 
             <h2>{timezone}</h2>
             <p> {currentDate}</p>
-            <p>{currentTime}
+            <p>{formattedTime}
             <span> {utcTimezoneOffSet}</span>
             <span> {abbreviation}</span>
             </p> 

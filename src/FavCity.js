@@ -23,7 +23,7 @@ setLoading(false)
         }
       }
     fetchCityData()
-    console.log(cityData)
+    
   }, []) // eslint-disable-next-line
     
   useEffect(() => {
@@ -42,7 +42,7 @@ setLoading(false)
     return () => clearInterval(intervalId);
   }, [cityData]); 
 if (error)
-  {return (<div className='error'>could not display cities:  try again...</div>)}
+  {return (<div className='error'>Network problem please reload page ...</div>)}
 if(loading){
 return(
 <div className='loadingIcon'>

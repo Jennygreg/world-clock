@@ -1,19 +1,10 @@
-.error{
-    display:block;
-    margin: 0 auto;  
-    width: 300px;
-    position:absolute;
-    left: 250px;
-}
-.loadingIcon{
-position:absolute;
-left: 350px;
-}
+
+
 .favCities{
     display:flex;
     margin: 0 auto;
+    width:700px;
     max-width: 70%;
-    width:800px;
     border: 1px solid rgb(121, 104, 104);
     border-radius: 20px;
     box-shadow: 3px 3px 3px 3px rgb(121, 104, 104);

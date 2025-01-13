@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <div className='introdiv'><h1>Global Clock: Stay in sync with current times worldwide</h1>
+    <p className='tag'>Your Timezone Buddy...!</p>
+    </div>
     <App/>
   </React.StrictMode>
 );
