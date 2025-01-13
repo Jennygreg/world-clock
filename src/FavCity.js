@@ -6,7 +6,7 @@ export default function FavCity(){
     const [cityData, setCityData]= useState([{}]);
     const [error, setError]= useState();
     const[loading, setLoading]=useState(true)
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(()=>{
      const fetchCityData= async()=>{
       
