@@ -15,11 +15,11 @@ export default function FavCity(){
             fetch(`http://worldtimeapi.org/api/timezone/${city}`)));
           const searchReponse= await Promise.all(responses.map((response)=>response.json()));
 setCityData(searchReponse)
-setLoading(false)
         }catch(error){
           console.log(error.message)
-          setLoading(false)
           setError(error.message)
+        }finally {
+          setLoading(false);
         }
       }
     fetchCityData()
