@@ -24,7 +24,7 @@ setLoading(false)
       }
     fetchCityData()
     
-  }, [favCities] )  // Empty dependency array is intentional, as we only fetch data once on mount
+  }, [] )  // Empty dependency array is intentional, as we only fetch data once on mount
     
   useEffect(() => {
     const intervalId = setInterval(() => {
