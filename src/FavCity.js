@@ -6,7 +6,7 @@ export default function FavCity(){
     const [cityData, setCityData]= useState([{}]);
     const [error, setError]= useState();
     const[loading, setLoading]=useState(true)
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(()=>{
      const fetchCityData= async()=>{
       
@@ -23,8 +23,8 @@ setCityData(searchReponse)
         }
       }
     fetchCityData()
-    
-  },[favCities])  // Empty dependency array is intentional, as we only fetch data once on mount
+   // eslint-disable-next-line react-hooks/exhaustive-deps   
+  },[])  // Empty dependency array is intentional, as we only fetch data once on mount
     
   useEffect(() => {
     const intervalId = setInterval(() => {
