@@ -27,7 +27,7 @@ setCityData(searchReponse)
       }
     fetchCityData()
    // eslint-disable-next-line react-hooks/exhaustive-deps   
-  },[])  // Empty dependency array is intentional, as we only fetch data once on mount
+  },[])  // Empty dependency array is intentional, as data is fetch once on mount
     
   useEffect(() => {
     const intervalId = setInterval(() => {

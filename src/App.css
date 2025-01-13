@@ -22,3 +22,15 @@ padding-top:20px;
 }
 .clock{top:25%;
     left:45%;}
+    .footer{
+      width:100vw;
+      display:block;
+      margin: 0 auto;
+      background-color:#ffffff ;
+      text-align: center;
+      margin-top: 50px;
+      padding:10px;
+      position:absolute;
+      top:100%;
+      
+    }
