@@ -12,7 +12,7 @@ export default function FavCity(){
       
         try{
           const responses= await Promise.all(favCities.map((city)=> 
-            fetch(`http://worldtimeapi.org/api/timezone/${city}`)));
+            fetch(`https://worldtimeapi.org/api/timezone/${city}`)));
           const searchReponse= await Promise.all(responses.map((response)=>response.json()));
 setCityData(searchReponse)
         }catch(error){

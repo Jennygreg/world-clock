@@ -8,7 +8,7 @@ import Time from './Time.js'
 export default  function Search(){
     const [city, setCity ]=useState(''); 
     const[data, setData]=useState({loaded:false});
-    const url=`http://worldtimeapi.org/api/timezone/${city}`;
+    const url=`https://worldtimeapi.org/api/timezone/${city}`;
    
     const searchHandle= async(city)=>{
             
