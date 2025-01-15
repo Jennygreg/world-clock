@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
     <div className='clockDiv'><ClockFace/></div> 
-    <div id='SearchContainer'> <Search /></div>
+    <div id='searchDiv'> <Search /></div>
      <div className='displayCity'><FavCity/></div>
       <div className='footer'><footer><a href='https://github.com/Jennygreg/world-clock' target="_blank" rel="noreferrer">Open source code</a> by Jennifer</footer></div> 
     </div>
