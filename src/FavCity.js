@@ -45,7 +45,7 @@ setCityData(searchReponse)
     return () => clearInterval(intervalId);
   }, [cityData]); 
 if (error)
-  {return (<div className='error'>Network problem please reload page ...</div>)}
+  {return (<div id='error' className='error'>Network problem please reload page ...</div>)}
 if(loading){
 return(
 <div className='loadingIcon'>
@@ -80,14 +80,14 @@ return(
     let currentDate=`${day} ${Month},${Year} `;
     let utcTimezoneOffSet = `UTC:${favcity.utc_offset}`;
 
-  return (
-  <div key={index} className='favCities'> 
+  return (<div id="favWrap">
+  <div key={index} id='favCities'> 
   <h2> {favcity.timezone}</h2>
   <p>{currentDate}</p>
   <p>{currentTime}</p>
   <p>{utcTimezoneOffSet}</p>
   <p>{favcity.abbreviation}</p>
-</div>
+</div></div>
 )
   }))}}
    

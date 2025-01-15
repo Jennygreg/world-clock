@@ -1,5 +1,5 @@
 
-.favCities{
+#favCities{
     display:flex;
     margin: 0 auto;
     width:750px;
@@ -12,7 +12,7 @@
    padding:10px;
    margin-bottom: 20px;
 }
-.favCities p{
-    font-size: large;
+#favCities p{
+    font-size: 1.2rem;
     font-weight: 500;
 }

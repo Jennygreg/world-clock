@@ -32,10 +32,7 @@ export default function ClockFace(){
         
     ))} 
        </div>
-       <div className='Search'>
-        </div>
-       
-    </div>
+       </div>
 )
     
 }

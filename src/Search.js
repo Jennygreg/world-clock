@@ -36,7 +36,7 @@ export default  function Search(){
      
  
       if(data.loaded===false ){return(
-        <div className="Search" id="Searchcontainer">
+        <div className="Search">
         <form onSubmit={SearchInput}>
           <input
               type="text"
@@ -44,13 +44,13 @@ export default  function Search(){
               className="searchInput"
               value={city}
               onChange={City}
-              name='Searchvalue}'
+              name='searchValue'
              id="searchInput"
           />
           <input type="submit" value="search" className="Submit" />
         </form></div>
       )}  else {return (
-        <div className="Search" id="container">
+        <div className="Search" >
           <form onSubmit={SearchInput}>
             <input
                 type="text"
@@ -58,7 +58,7 @@ export default  function Search(){
                 className="searchInput"
                 value={city}
                 onChange={City}
-                name='Searchvalue}'
+                name='searchValue'
                id="searchInput"
             />
             <input type="submit" value="search" className="Submit" />
