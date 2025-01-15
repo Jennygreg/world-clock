@@ -40,7 +40,7 @@ if(timeDate){
     let utcTimezoneOffSet = `UTC:${utc_offset}`;
        
     return(
-        <div id='searchresult'> 
+        <div id='searchResult'> 
             <h2>{timezone}</h2>
             <p> {currentDate}</p>
             <p>{formattedTime}
@@ -49,7 +49,7 @@ if(timeDate){
             </p> 
         </div>)}else{
     
-    return (<div id="timeDataError"><p>Please check your network connection and enter valid search e.g continent/city</p></div> )
+    return (<div id="searchResult"><p>Please check your network connection and enter valid search e.g continent/city</p></div> )
  }
 
 

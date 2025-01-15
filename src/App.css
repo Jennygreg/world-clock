@@ -1,4 +1,9 @@
-#Searchcontainer{
+.App{
+  display:block;
+  margin:0 auto;
+  padding:0;
+}
+#SearchContainer{
   display:block;
   margin:0 auto;
   position:absolute; 

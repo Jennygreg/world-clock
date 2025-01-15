@@ -1,7 +1,12 @@
-
+.Search{
+    display: block;
+    max-width:50%;
+    margin:0 auto;
+    margin-left: 0;
+    padding:0;
+}
 .searchInput  {
     width: 300px;
-    max-width: 60%;
     height: 20px;
     color:black;
     border: none;
@@ -16,7 +21,6 @@
 }
 .Submit{
     width:100px;
-    max-width: 35%;
     height: 40px;
     font-size:1.2rem ;
     border-radius: 5px;
