@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/api/geonames/*"
+  to = "http://api.geonames.org/:splat"
+  status = 200
+  force = true

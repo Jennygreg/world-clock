@@ -24,7 +24,8 @@ export default function FavCity(){
 
             }})
             const timezoneData=  await Promise.all(cordinates.map((cityCordinates)=>
-              fetch(` http://api.geonames.org/timezoneJSON?&lat=${cityCordinates.lat}&lng=${cityCordinates.lon}&username=mizbella`)
+              fetch(` 
+/api.geonames.org/timezoneJSON?&lat=${cityCordinates.lat}&lng=${cityCordinates.lon}&username=mizbella`)
             ))
          const timeZoneResponse= await Promise.all(timezoneData.map((response)=>response.json()))
           setCityData (timeZoneResponse)
