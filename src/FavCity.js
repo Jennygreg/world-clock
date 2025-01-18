@@ -32,17 +32,17 @@ export default function FavCity(){
           }
         catch(error){
           console.log(error.message)
-          if (error.includes('Failed to fetch') || error.includes('401')|| error.includes('Bad Gateway')) {
+          if (error.message.includes('Failed to fetch') || error.message.includes('401')|| error.message.includes('Bad Gateway')) {
             // Handle network or server errors//
             setError("No network:Check Connection")
 
-          } else if (error.includes("Can't find city")) {
+          } else if (error.message.includes("Can't find city")) {
             // Handle city not found error
             setError("City not found enter valid search");
             // You can also display a user-friendly error message to the user
           } else {
             // Handle other errors
-            console.error("An unknown error occurred try agin");
+           setError("An unknown error occurred try agin");
           }
         }finally {
           setLoading(false);
