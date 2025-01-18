@@ -11,14 +11,15 @@ useEffect(()=>{
     };
 },[]);
 if(timeDate){
-    const {timezone,utc_offset, abbreviation}= timeDate
+    const {cityName,gmtOffset,abbreviation,}= timeDate
     const Days=['Sun','Mon','Tues','Wed','Thur', 'Fri','Sat'];
     const Months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const utcOffset = parseInt(timeDate.utc_offset);
-    /*This gets the currentTime in milliseconds since the Unix epoch (January 1, 1970, 00:00:00 UTC).
-     calculates the UTC offset which is UTC  hours in seconds by multiplying it by 60  * 60 and convert it from second
-     to millisecond by multiplying it by 1000 */
-    const cityTime = new Date(currentTime.getTime() + (utcOffset * 60 * 60 * 1000));
+    const offset = gmtOffset / 3600;
+// Calculate the current time in the city's timezone by adding the UTC offset to the current time
+// currentTime.getTime() gets the current time in milliseconds since the Unix epoch
+// offset * 60 * 60 * 1000 calculates the UTC offset in milliseconds
+// (hours to seconds to milliseconds)
+     const cityTime = new Date(currentTime.getTime() + (offset * 60 * 60 * 1000));
   
     const day=Days[cityTime.getDay()];
     const Month=Months[cityTime.getMonth()]
@@ -35,22 +36,24 @@ if(timeDate){
     if(hour<0){
         hour=`0${hour}`
     }
-    let formattedTime=`${hour}:${min}:${second}`;
-    let currentDate=`${day} ${Month},${Year} `;
-    let utcTimezoneOffSet = `UTC:${utc_offset}`;
+const formattedTime=`${hour}:${min}:${second}`;
+const currentDate=`${day} ${Month}, ${Year} `;
+const utcTimezoneOffSet = `UTC:${offset >= 0 ? '+' : '-'}${Math.abs(offset).toString().padStart(2, '0')}`;
        
     return(
         <div id='searchResult'> 
-            <h2>{timezone}</h2>
+            <h2>{cityName}</h2>
             <p> {currentDate}</p>
             <p>{formattedTime}
             <span> {utcTimezoneOffSet}</span>
             <span> {abbreviation}</span>
             </p> 
-        </div>)}else{
-    
-    return (<div id="searchResult"><p>Please check your network connection and enter valid search e.g continent/city</p></div> )
+        </div>)
  }
-
+ else{
+    
+    return (<div id="searchError"><h4>An unknown error occurred try again:  </h4>
+    <p>Check network connection and enter valid search</p>
+    </div> )}
 
 }

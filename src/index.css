@@ -18,6 +18,11 @@
       }
       #searchResult{
         display:block !important;
+        
+        position:absolute;
+        text-align: center;
+        left:12%;
+        padding:0;
         }
     .loadingIcon{
         max-width: 50%;

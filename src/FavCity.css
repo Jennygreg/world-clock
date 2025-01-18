@@ -2,15 +2,16 @@
 #favCities{
     display:flex;
     margin: 0 auto;
-    width:750px;
+    width:800px;
     max-width: 70%;
     border: 1px solid rgb(121, 104, 104);
+    background-color:#e3d4c6;
     border-radius: 20px;
     box-shadow: 3px 3px 3px 3px rgb(121, 104, 104);
    justify-content:space-around;
    align-items: baseline;
+   margin-bottom: 5px;
    padding:10px;
-   margin-bottom: 20px;
 }
 #favCities p{
     font-size: 1.2rem;
