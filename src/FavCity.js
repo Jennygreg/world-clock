@@ -39,7 +39,7 @@ export default function FavCity(){
           } else if (error.message.includes("Can't find city")) {
             // Handle city not found error
             setError("City not found");
-            // You can also display a user-friendly error message to the user
+            
           } else {
             // Handle other errors
            setError("An unknown error occurred try agin");
