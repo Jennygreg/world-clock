@@ -24,10 +24,8 @@ export default function FavCity(){
 
             }})
             const timezoneData=  await Promise.all(cordinates.map((cityCordinates)=>
-               fetch(`/api/timezone/lat=${cityCordinates.lat}&lng=${cityCordinates.lon}`) 
-          
+              fetch(`/api/timezone?lat=${cityCordinates.lat}&lng=${cityCordinates.lon}`)
             ));
-            
          const timeZoneResponse= await Promise.all(timezoneData.map((response)=>response.json()))
           setCityData (timeZoneResponse)
           
