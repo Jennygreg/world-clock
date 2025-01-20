@@ -38,7 +38,7 @@ export default function FavCity(){
 
           } else if (error.message.includes("Can't find city")) {
             // Handle city not found error
-            setError("City not found enter valid search");
+            setError("City not found");
             // You can also display a user-friendly error message to the user
           } else {
             // Handle other errors
@@ -52,7 +52,7 @@ export default function FavCity(){
     fetchCityData()
    // eslint-disable-next-line react-hooks/exhaustive-deps   
   },[])  // Empty dependency array is intentional, as data is fetch once on mount
-    console.log(cityData)
+    
   useEffect(() => {
     const intervalId = setInterval(() => {
        // Check if cityData is an array
@@ -60,7 +60,6 @@ export default function FavCity(){
         setCityData((prevCityData) =>
           prevCityData.map((city) => {
             const utcOffset = city.gmtOffset
-            console.log(utcOffset)
             const cityCurrentTime = new Date();
             const cityTime = new Date(cityCurrentTime.getTime() + (utcOffset * 60 * 60 * 1000));
             return { ...city, datetime: cityTime};

@@ -19,7 +19,6 @@ export default  function Search(){
                 throw new Error(`HTTP error! status: ${Search.status}`)
               }
               const cityResult=await citySearch.json();
-              console.log(cityResult)
               const lat=cityResult[0].lat;
               const lon=cityResult[0].lon
               const timeApiKey='HI8QZIPCUTVM';
