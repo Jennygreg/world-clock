@@ -23,17 +23,10 @@ export default function FavCity(){
               lon:cordinate[0].lon
 
             }})
-            const timezoneData=  await Promise.all(cordinates.map((cityCordinates)=>{
-              const endpoint = process.env.REACT_APP_API_ENDPOINT;
-              const tzResponse = process.env.NODE_ENV === 'development'
-              ?  fetch(`${endpoint}?lat=${cityCordinates.lat}&lng=${cityCordinates.lon}&username=mizbella`)
-            : fetch(`${endpoint}?lat=${cityCordinates.lat}&lng=${cityCordinates.lon}`); 
-              
-            if (!tzResponse.ok) {
-              throw new Error('Error fetching timezone data');
-            }
-            return tzResponse.json();
-            }));
+            const timezoneData=  await Promise.all(cordinates.map((cityCordinates)=>
+               fetch(`/api/timezone/lat=${cityCordinates.lat}&lng=${cityCordinates.lon}`) 
+          
+            ));
             
          const timeZoneResponse= await Promise.all(timezoneData.map((response)=>response.json()))
           setCityData (timeZoneResponse)
