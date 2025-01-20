@@ -3,6 +3,6 @@
 
    [[redirects]]
      from = "/api/timezone/*"
-     to = "/.netlify/functions/timezone?lat=:lat&lng=:lng"
+     to = "/.netlify/functions/fetchGeoNameApi?lat=:lat&lng=:lng"
      status = 200
      force = true
